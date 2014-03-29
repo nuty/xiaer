@@ -34,6 +34,4 @@ xiaer
     python manage.py runserver
 
 ## 截图
- ![shot1](https://raw.githubusercontent.com/nuty/xiaer/master/shots/shot1.png)
- 
  ![shot2](https://raw.githubusercontent.com/nuty/xiaer/master/shots/shot2.png)
