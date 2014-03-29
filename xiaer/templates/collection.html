@@ -35,7 +35,7 @@ $('#container-1').highcharts({
         },
         series: [{
             type: 'pie',
-            name: 'Browser share',
+            name: '歌曲',
             data: {{ songs|tojson|safe }}
         }]
     });
@@ -66,7 +66,7 @@ $('#container-2').highcharts({
         },
         series: [{
             type: 'pie',
-            name: 'Browser share',
+            name: '专辑占比',
             data: {{ album|tojson|safe }}
         }]
     });
@@ -78,7 +78,7 @@ $('#container-3').highcharts({
             plotShadow: false
         },
         title: {
-            text: '艺术家 '
+            text: '艺术家占比'
         },
         tooltip: {
           pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -97,7 +97,7 @@ $('#container-3').highcharts({
         },
         series: [{
             type: 'pie',
-            name: 'Browser share',
+            name: '艺术家占比',
             data: {{ artist|tojson|safe }}
         }]
     });
@@ -111,24 +111,11 @@ $('#container-3').highcharts({
 
 
           <div class="hero-unit" style='width:900px;'>
-<!--     <form class="form-horizontal" action='{{ url_for('collection') }}' method='get'>
-        <div class="control-group">
-        <label class="control-label" for="inputEmail">虾米用户ID</label>
-            <div class="controls">
-                <input type="text" id="inputUid" name='uid' placeholder="虾米用户ID">
-            </div>
-            </div>
-            <div class="control-group">
-            <div class="controls">
-                <input type="submit" class="btn submit-btn" value='搜索'>
-            </div>
-        </div>
-    </form> -->
-
             <div class='row' style="">
             <ul style='list-style:none;margin:0px;'>
               {% for user in users %}
               <li style='float:left; margin-top:20px; width:300px;'>
+            {% if user.username %}
                 <div>
                 <span>
                     <img src="{{ user.avatar }}" class="img-circle" style='height:100px;width:100px;'>
@@ -138,6 +125,19 @@ $('#container-3').highcharts({
                 </span>
                 
                 </div>
+                 {% else %}
+                <div>
+                <span>
+                    <img src="{{ url_for('static',filename='img/d.jpg')}}" class="img-circle" style='height:100px;width:100px;'>
+                </span>
+                <span>
+                    <a href="/?uid={{ user.uid }}" style='margin-right:100px;color:red'>{{ user.uid }}</a>
+                </span>
+                
+                </div>
+
+
+            {% endif %}
             </li>
               {% endfor %}
             </ul>
