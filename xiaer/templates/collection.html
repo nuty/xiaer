@@ -110,8 +110,8 @@ $('#container-3').highcharts({
 {% if not user %}
 
 
-          <div class="hero-unit">
-    <form class="form-horizontal" action='{{ url_for('collection') }}' method='get'>
+          <div class="hero-unit" style='width:900px;'>
+<!--     <form class="form-horizontal" action='{{ url_for('collection') }}' method='get'>
         <div class="control-group">
         <label class="control-label" for="inputEmail">虾米用户ID</label>
             <div class="controls">
@@ -123,7 +123,26 @@ $('#container-3').highcharts({
                 <input type="submit" class="btn submit-btn" value='搜索'>
             </div>
         </div>
-    </form>
+    </form> -->
+
+            <div class='row' style="">
+            <ul style='list-style:none;margin:0px;'>
+              {% for user in users %}
+              <li style='float:left; margin-top:20px; width:300px;'>
+                <div>
+                <span>
+                    <img src="{{ user.avatar }}" class="img-circle" style='height:100px;width:100px;'>
+                </span>
+                <span>
+                    <a href="/?uid={{ user.uid }}" style='margin-right:100px;'>{{ user.username }}</a>
+                </span>
+                
+                </div>
+            </li>
+              {% endfor %}
+            </ul>
+
+          </div>
           </div>
 {% else %}
     <div id="container-1" style="min-width: 510px; height: 600px; margin: 0 auto"></div>

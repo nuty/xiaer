@@ -29,12 +29,12 @@ def loop():
 
 
 def spider():
-    user = None
-    return render_template('spider.html',
-                           user=user)
+
+    return render_template('spider.html')
 
 
 def collection():
+    users = User.query.all()
     errors = ''
     user = None
     try:
@@ -58,6 +58,7 @@ def collection():
                            songs=songs,
                            album=album,
                            artist=artist,
+                           users=users
                            )
 
 

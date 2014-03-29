@@ -5,20 +5,21 @@
 
 {% block content %}
         <div class="span9">
+
           <div class="hero-unit">
-    <form class="form-horizontal">
-        <div class="control-group">
-        <label class="control-label" for="inputEmail">虾米用户ID</label>
-            <div class="controls">
-                <input type="text" id="inputUid" name='uid' placeholder="虾米用户ID">
-            </div>
-            </div>
-            <div class="control-group">
-            <div class="controls">
-                <a type="submit" class="btn submit-btn">确定</a>
-            </div>
-        </div>
-    </form>
+                <form class="form-horizontal">
+                <div class="control-group">
+                  <label class="control-label" for="inputEmail">虾米用户ID</label>
+                    <div class="controls">
+                      <input type="text" id="inputUid" name='uid' placeholder="虾米用户ID">
+                    </div>
+                    </div>
+                  <div class="control-group">
+                  <div class="controls">
+                      <a type="submit" class="btn submit-btn">确定</a>
+                  </div>
+              </div>
+          </form>
           </div>
         </div><!--/span-->
 <script type="text/javascript">
@@ -36,7 +37,7 @@ $(function() {
                 if (data.ok){
                    alert('成功!');
                    // window.location.reload();
-                   var url = ['/collection?uid=' , args.uid.toString()].join(""); 
+                   var url = ['/?uid=' , args.uid.toString()].join(""); 
                    window.location.href=url;
                    return false
                 }else{
