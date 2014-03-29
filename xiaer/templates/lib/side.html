@@ -1,0 +1,9 @@
+<div class="span3">
+  <div class="well sidebar-nav">
+    <ul class="nav nav-list">
+      <li class="nav-header">{% if user %}<h4>{{ user.username }}</h4>的试听数据{% else %}试听数据{% endif %}</li>
+      <li><a href="{{ url_for('collection') }}">数据</a></li>
+      <li><a href="{{ url_for('spider') }}">采集</a></li>
+    </ul>
+  </div><!--/.well -->
+</div><!--/span-->

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+  {% block title %}
+    Spider Data
+  {% endblock %}
+
+{% block content %}
+        <div class="span9">
+          <div class="hero-unit">
+    <form class="form-horizontal">
+        <div class="control-group">
+        <label class="control-label" for="inputEmail">虾米用户ID</label>
+            <div class="controls">
+                <input type="text" id="inputUid" name='uid' placeholder="虾米用户ID">
+            </div>
+            </div>
+            <div class="control-group">
+            <div class="controls">
+                <a type="submit" class="btn submit-btn">确定</a>
+            </div>
+        </div>
+    </form>
+          </div>
+        </div><!--/span-->
+<script type="text/javascript">
+$(function() {
+    $('.submit-btn').on('click', function(event) {
+        var Uid = $('#inputUid').val();
+        var args = {
+            uid:Uid
+        }
+        // if (!arg.uid){
+        //     alert('请输入UID');
+        // }
+        // alert(1111);
+        $.post('/loop', args, function(data, textStatus, xhr) { 
+                if (data.ok){
+                   alert('成功!');
+                   // window.location.reload();
+                   var url = ['/collection?uid=' , args.uid.toString()].join(""); 
+                   window.location.href=url;
+                   return false
+                }else{
+                    alert(data.errors);
+                    return false
+                }
+        });
+    });
+
+});
+</script>
+{% endblock %}
