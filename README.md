@@ -27,11 +27,12 @@ xiaer
     安装依赖
     pip install -r requirements.txt
     
-    初始欢数据库
+    初始化数据库
     python manage.py initdb
 
     运行服务
     python manage.py runserver
 
-
-
+## 截图
+ ![shot1](https://github.com/nuty/xiaer/blob/master/shots/shot1.png)
+ ![shot2](https://github.com/nuty/xiaer/blob/master/shots/shot2.png)
