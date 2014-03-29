@@ -32,3 +32,10 @@ xiaer
 
     运行服务
     python manage.py runserver
+
+
+#### 截图
+    ![shot1](https://github.com/nuty/xiaer/blob/master/shots/shot1.png)
+    
+    ![shot2](https://github.com/nuty/xiaer/blob/master/shots/shot2.png)
+
