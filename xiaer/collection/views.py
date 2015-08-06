@@ -12,7 +12,7 @@ def loop():
         return jsonify(ok=False, errors=u"uid")
 
     try:
-        user = User.query.get(uid=self.uid)
+        user = User.query.get(uid=uid)
     except Exception as e:
         user = None
     if user is not None:
@@ -72,13 +72,13 @@ def xiami_items(key, page, userid):
     def get_pre_items(key, page):
         if key == 'song':
             items = Song.query.filter_by(
-                user_id=userid).paginate(page, 40, False).items
+                user_id=user.uid).paginate(page, 40, False).items
         elif key == 'artist':
             items = Entry.query.filter_by(
-                state=1, user_id=userid).paginate(page, 40, False).items
+                state=1, user_id=user.uid).paginate(page, 40, False).items
         else:
             items = Entry.query.filter_by(
-                state=2, user_id=userid).paginate(page, 40, False).items
+                state=2, user_id=user.uid).paginate(page, 40, False).items
         return items
     if page == 1:
         for item in get_pre_items(key, page):

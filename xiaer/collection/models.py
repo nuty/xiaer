@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import datetime
-from xiaer import  db
+from xiaer import db
 
 ENTRY_CHOICES = {
     1:'Artist',
@@ -20,13 +20,12 @@ class User(db.Model):
         return self.username
 
     def __repr__(self):
-        return '<Entry %r>' % self.username
+        return '<User %r>' % self.username
     
     def _json(self):
         rv = {
-            'username':self.username,
-            'hits':self.hits,
-            'state':self.state
+            'username': self.username,
+            'uid': self.uid,
         }
         return rv
 
